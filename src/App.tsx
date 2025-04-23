@@ -1,10 +1,13 @@
 import React from 'react';
 import './App.css';
-import Dashboard from './pages/dashboard';
+import Dashboard from './modules/dashboard';
+import { TranslationProvider } from 'containers/translation';
 
 const App: React.FC = () => {
   return (
-    <Dashboard />
+    <TranslationProvider>
+      <Dashboard />
+    </TranslationProvider>
   );
 }
 

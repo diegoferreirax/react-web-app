@@ -3,27 +3,13 @@ import { createTheme } from '@mui/material/styles';
 import { AppProvider, type Navigation } from '@toolpad/core/AppProvider';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
 import { useDemoRouter } from '@toolpad/core/internal';
+import { useTranslation } from 'containers/translation';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import PeopleIcon from '@mui/icons-material/People';
 import AppTitle from './slots/app-title';
 import ToolbarActions from './slots/toolbar-actions';
 import SidebarFooter from './slots/sidebar-footer';
-
-const NAVIGATION: Navigation = [
-    {
-        kind: 'header',
-        title: 'Menu principal',
-    },
-    {
-        segment: 'clients',
-        title: 'Clientes',
-        icon: <PeopleIcon />,
-    },
-    {
-        kind: 'divider',
-    },
-];
 
 const theme = createTheme({
     cssVariables: {
@@ -63,14 +49,29 @@ interface DashboardProps {
 
 const Dashboard: React.FC = (props: DashboardProps) => {
     const { window } = props;
+    const { translate } = useTranslation();
 
     const router = useDemoRouter('/dashboard');
-
     const demoWindow = window !== undefined ? window() : undefined;
+
+    const navigation: Navigation = [
+        {
+            kind: 'header',
+            title: translate('main_menu'),
+        },
+        {
+            segment: 'clients',
+            title: translate('clients'),
+            icon: <PeopleIcon />,
+        },
+        {
+            kind: 'divider',
+        },
+    ];
 
     return (
         <AppProvider
-            navigation={NAVIGATION}
+            navigation={navigation}
             router={router}
             theme={theme}
             window={demoWindow}

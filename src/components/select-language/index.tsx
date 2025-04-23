@@ -1,13 +1,18 @@
 import React from 'react';
 import { MenuItem, Select } from '@mui/material';
+import { useTranslation } from 'containers/translation';
 import ptFlag from 'assets/pt.png';
 import enFlag from 'assets/en.png';
+import esFlag from 'assets/es.png';
 
 const SelectLanguage: React.FC = () => {
-    const [language, setLanguage] = React.useState('pt');
+    const {
+        language,
+        handleSetLanguage
+    } = useTranslation();
 
     const handleLanguageChange = (lang: string) => {
-        setLanguage(lang);
+        handleSetLanguage(lang);
     };
 
     return (
@@ -36,6 +41,9 @@ const SelectLanguage: React.FC = () => {
             </MenuItem>
             <MenuItem value="en">
                 <img src={enFlag} alt="English" width={24} height={24} />
+            </MenuItem>
+            <MenuItem value="es">
+                <img src={esFlag} alt="Spanish" width={24} height={24} />
             </MenuItem>
         </Select>
     );
