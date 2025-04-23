@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Dashboard from './pages/dashboard';
+import Dashboard from './modules/dashboard';
 
 const App: React.FC = () => {
   return (
