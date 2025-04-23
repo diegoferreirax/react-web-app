@@ -1,16 +1,20 @@
 import React from 'react';
 import { Typography } from '@mui/material';
 import { SidebarFooterProps } from '@toolpad/core';
+import { useTranslation } from 'containers/translation';
 import Link from 'styled-components/link';
 
 const SidebarFooter: React.FC<SidebarFooterProps> = ({ mini }: SidebarFooterProps) => {
+    const {
+        translate
+    } = useTranslation();
 
     const handleLink = (mini: boolean) => {
         return (
             <div>
                 © {!mini ? (
                     <>
-                        {new Date().getFullYear()} Desenvolvido por
+                        {new Date().getFullYear()} {translate('developed_by')}
                     </>
                 ) : <></>} <Link href="https://linkedin.com/in/diegoferreirax" target="_blank">Diego</Link>
             </div>
