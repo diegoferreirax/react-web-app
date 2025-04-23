@@ -5,55 +5,23 @@ import { DashboardLayout } from '@toolpad/core/DashboardLayout';
 import { useDemoRouter } from '@toolpad/core/internal';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import BarChartIcon from '@mui/icons-material/BarChart';
-import DescriptionIcon from '@mui/icons-material/Description';
-import LayersIcon from '@mui/icons-material/Layers';
+import PeopleIcon from '@mui/icons-material/People';
+import AppTitle from './slots/app-title';
+import ToolbarActions from './slots/toolbar-actions';
+import SidebarFooter from './slots/sidebar-footer';
 
 const NAVIGATION: Navigation = [
     {
         kind: 'header',
-        title: 'Main items',
+        title: 'Menu principal',
     },
     {
-        segment: 'dashboard',
-        title: 'Dashboard',
-        icon: <DashboardIcon />,
-    },
-    {
-        segment: 'orders',
-        title: 'Orders',
-        icon: <ShoppingCartIcon />,
+        segment: 'clients',
+        title: 'Clientes',
+        icon: <PeopleIcon />,
     },
     {
         kind: 'divider',
-    },
-    {
-        kind: 'header',
-        title: 'Analytics',
-    },
-    {
-        segment: 'reports',
-        title: 'Reports',
-        icon: <BarChartIcon />,
-        children: [
-            {
-                segment: 'sales',
-                title: 'Sales',
-                icon: <DescriptionIcon />,
-            },
-            {
-                segment: 'traffic',
-                title: 'Traffic',
-                icon: <DescriptionIcon />,
-            },
-        ],
-    },
-    {
-        segment: 'integrations',
-        title: 'Integrations',
-        icon: <LayersIcon />,
     },
 ];
 
@@ -107,7 +75,12 @@ const Dashboard: React.FC = (props: DashboardProps) => {
             theme={theme}
             window={demoWindow}
         >
-            <DashboardLayout>
+            <DashboardLayout
+                slots={{
+                    appTitle: AppTitle,
+                    toolbarActions: ToolbarActions,
+                    sidebarFooter: SidebarFooter,
+                }}>
                 <PageContent pathname={router.pathname} />
             </DashboardLayout>
         </AppProvider>
