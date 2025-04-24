@@ -22,17 +22,19 @@ export const TranslationProvider: React.FC<{ children: ReactNode }> = ({ childre
     const [translations, setTranslations] = useState<Record<string, string>>({});
 
     const loadTranslations = (lang: string) => {
-        if (lang === 'pt') {
-            setTranslations(pt);
-            return;
-        }
-        if (lang === 'en') {
-            setTranslations(en);
-            return;
-        }
-        if (lang === 'es') {
-            setTranslations(es);
-            return;
+        switch (lang) {
+            case 'pt':
+                setTranslations(pt);
+                break;
+            case 'en':
+                setTranslations(en);
+                break;
+            case 'es':
+                setTranslations(es);
+                break;
+            default:
+                setTranslations(pt);
+                break;
         }
     };
 

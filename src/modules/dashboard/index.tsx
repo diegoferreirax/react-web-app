@@ -3,10 +3,11 @@ import { createTheme } from '@mui/material/styles';
 import { AppProvider, type Navigation } from '@toolpad/core/AppProvider';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
 import { useDemoRouter } from '@toolpad/core/internal';
-import { useTranslation } from 'containers/translation';
+import { useTranslation } from 'modules/translation/container';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import PeopleIcon from '@mui/icons-material/People';
+import InfoIcon from '@mui/icons-material/Info';
 import AppTitle from './slots/app-title';
 import ToolbarActions from './slots/toolbar-actions';
 import SidebarFooter from './slots/sidebar-footer';
@@ -63,6 +64,11 @@ const Dashboard: React.FC = (props: DashboardProps) => {
             segment: 'clients',
             title: translate('clients'),
             icon: <PeopleIcon />,
+        },
+        {
+            segment: 'about',
+            title: translate('about'),
+            icon: <InfoIcon />,
         },
         {
             kind: 'divider',

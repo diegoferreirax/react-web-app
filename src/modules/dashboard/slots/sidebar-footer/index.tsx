@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography } from '@mui/material';
 import { SidebarFooterProps } from '@toolpad/core';
-import { useTranslation } from 'containers/translation';
+import { useTranslation } from 'modules/translation/container';
 import Link from 'styled-components/link';
 
 const SidebarFooter: React.FC<SidebarFooterProps> = ({ mini }: SidebarFooterProps) => {
