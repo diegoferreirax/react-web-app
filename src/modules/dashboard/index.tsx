@@ -3,7 +3,7 @@ import { createTheme } from '@mui/material/styles';
 import { AppProvider, type Navigation } from '@toolpad/core/AppProvider';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
 import { useDemoRouter } from '@toolpad/core/internal';
-import { useTranslation } from 'containers/translation';
+import { useTranslation } from 'modules/translation/container';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import PeopleIcon from '@mui/icons-material/People';
