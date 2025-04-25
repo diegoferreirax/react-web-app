@@ -15,11 +15,9 @@ const RoutesApp: React.FC = () => {
                 <Route path="/dashboard" element={
                     <Dashboard />
                 }>
-
                     <Route path="/dashboard/clients" element={<Client />} />
                     <Route path="/dashboard/about" element={<About />} />
                     <Route path="/dashboard/virtual-scroll" element={<VirtualScroll />} />
-
                 </Route>
             </Route>
 

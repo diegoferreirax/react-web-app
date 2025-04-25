@@ -1,13 +1,9 @@
 import * as React from 'react';
 import { createTheme } from '@mui/material/styles';
-import { AppProvider, type Navigation } from '@toolpad/core/AppProvider';
+import { AppProvider } from '@toolpad/core/AppProvider';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
-import { useDemoRouter } from '@toolpad/core/internal';
-import { useTranslation } from 'modules/translation/container';
 import { Navigate, Outlet } from 'react-router-dom';
-import PeopleIcon from '@mui/icons-material/People';
-import InfoIcon from '@mui/icons-material/Info';
-import ListIcon from '@mui/icons-material/List';
+import { useRoutesContext } from 'routes/container';
 import AppTitle from './slots/app-title';
 import ToolbarActions from './slots/toolbar-actions';
 import SidebarFooter from './slots/sidebar-footer';
@@ -34,35 +30,8 @@ interface DashboardProps {
 
 const Dashboard: React.FC = (props: DashboardProps) => {
     const { window } = props;
-    const { translate } = useTranslation();
-
-    const router = useDemoRouter('/dashboard');
+    const { navigation, router } = useRoutesContext();
     const demoWindow = window !== undefined ? window() : undefined;
-
-    const navigation: Navigation = [
-        {
-            kind: 'header',
-            title: translate('main_menu'),
-        },
-        {
-            segment: 'dashboard/clients',
-            title: translate('clients'),
-            icon: <PeopleIcon />,
-        },
-        {
-            segment: 'dashboard/virtual-scroll',
-            title: translate('virtual_scroll'),
-            icon: <ListIcon />,
-        },
-        {
-            segment: 'dashboard/about',
-            title: translate('about'),
-            icon: <InfoIcon />,
-        },
-        {
-            kind: 'divider',
-        },
-    ];
 
     return (
         <AppProvider
@@ -77,7 +46,7 @@ const Dashboard: React.FC = (props: DashboardProps) => {
                     toolbarActions: ToolbarActions,
                     sidebarFooter: SidebarFooter,
                 }}>
-                <Navigate to={router.pathname} replace />
+                <Navigate to={router.pathname} />
                 <Outlet />
             </DashboardLayout>
         </AppProvider>
