@@ -5,10 +5,17 @@ import { DashboardLayout } from '@toolpad/core/DashboardLayout';
 import { useDemoRouter } from '@toolpad/core/internal';
 import { useTranslation } from 'modules/translation/container';
 import { TableComponents, TableVirtuoso } from 'react-virtuoso';
+import {
+    IconButton, 
+    TableContainer,
+    Button,
+    Modal,
+    Typography
+} from '@mui/material';
 import Box from '@mui/material/Box';
-import PeopleIcon from '@mui/icons-material/People';
-import InfoIcon from '@mui/icons-material/Info';
 import ListIcon from '@mui/icons-material/List';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 import AppTitle from './slots/app-title';
 import ToolbarActions from './slots/toolbar-actions';
 import SidebarFooter from './slots/sidebar-footer';
@@ -19,8 +26,6 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { TableContainer } from '@mui/material';
-
 
 interface Data {
     id: number;
@@ -29,6 +34,7 @@ interface Data {
     age: number;
     phone: string;
     state: string;
+    action: boolean;
 }
 
 interface ColumnData {
@@ -36,6 +42,7 @@ interface ColumnData {
     label: string;
     numeric?: boolean;
     width?: number;
+    actions?: boolean;
 }
 
 function createData(id: number): Data {
@@ -46,6 +53,7 @@ function createData(id: number): Data {
         age: id,
         phone: 'chance.phone()',
         state: 'chance.state({ full: true })',
+        action: true,
     };
 }
 
@@ -75,6 +83,12 @@ const columns: ColumnData[] = [
         width: 130,
         label: 'Phone Number',
         dataKey: 'phone',
+    },
+    {
+        width: 50,
+        label: 'Actions',
+        dataKey: 'action',
+        actions: true,
     },
 ];
 
@@ -114,21 +128,6 @@ function fixedHeaderContent() {
     );
 }
 
-function rowContent(_index: number, row: Data) {
-    return (
-        <React.Fragment>
-            {columns.map((column) => (
-                <TableCell
-                    key={column.dataKey}
-                    align={column.numeric || false ? 'right' : 'left'}
-                >
-                    {row[column.dataKey]}
-                </TableCell>
-            ))}
-        </React.Fragment>
-    );
-}
-
 const theme = createTheme({
     cssVariables: {
         colorSchemeSelector: 'data-toolpad-color-scheme',
@@ -156,15 +155,16 @@ const Dashboard: React.FC = (props: DashboardProps) => {
     const router = useDemoRouter('/dashboard');
     const demoWindow = window !== undefined ? window() : undefined;
 
+    const [selectedItem, setSelectedItem] = React.useState<Data | null>(null);
+
+    const [isModalOpen, setModalOpen] = React.useState(false);
+
+    const rootRef = React.useRef<HTMLDivElement>(null);
+
     const navigation: Navigation = [
         {
             kind: 'header',
             title: translate('main_menu'),
-        },
-        {
-            segment: 'clients',
-            title: translate('clients'),
-            icon: <PeopleIcon />,
         },
         {
             segment: 'virtual-scroll',
@@ -172,36 +172,108 @@ const Dashboard: React.FC = (props: DashboardProps) => {
             icon: <ListIcon />,
         },
         {
-            segment: 'about',
-            title: translate('about'),
-            icon: <InfoIcon />,
-        },
-        {
             kind: 'divider',
         },
     ];
 
+    const handleDeleteClick = (item: Data) => {
+        setSelectedItem(item);
+        setModalOpen(true);
+        console.log('Delete clicked for item:', item);
+    };
+    
     const PageContent = ({ pathname }: { pathname: string }) => {
         return (
             <Box
                 sx={{
-                    py: 4,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    textAlign: 'center',
+                    height: 300,
+                    flexGrow: 1,
+                    minWidth: 300,
+                    transform: 'translateZ(0)',
                 }}
+                ref={rootRef}
             >
-                {/* <Typography>Dashboard content for {pathname}</Typography> */}
-
-                <Paper style={{ height: 400, width: '100%' }}>
+                <Paper style={{ height: 500, width: '100%' }}>
                     <TableVirtuoso
                         data={rows}
                         components={VirtuosoTableComponents}
                         fixedHeaderContent={fixedHeaderContent}
-                        itemContent={rowContent}
+                        itemContent={(_index: number, row: Data) => (
+                            <React.Fragment>
+                                {columns.map((column) => {
+                                    const value = row[column.dataKey];
+
+                                    return (
+                                        <TableCell
+                                            key={column.dataKey}
+                                            align={column.numeric || false ? 'right' : 'left'}
+                                            style={{ width: column.width }}
+                                        >
+                                            {column.actions ? (
+                                                <div>
+                                                    <IconButton aria-label="edit" size="small">
+                                                        <EditIcon fontSize="small" />
+                                                    </IconButton>
+                                                    <IconButton
+                                                        aria-label="delete"
+                                                        size="small"
+                                                        onClick={() => handleDeleteClick(row)}
+                                                    >
+                                                        <DeleteIcon fontSize="small" />
+                                                    </IconButton>
+                                                </div>
+                                            ) : (
+                                                value
+                                            )}
+                                        </TableCell>
+                                    );
+                                })}
+                            </React.Fragment>
+                        )}
                     />
                 </Paper>
+
+                <Modal
+                    disablePortal
+                    disableEnforceFocus
+                    disableAutoFocus
+                    open={isModalOpen}
+                    aria-labelledby="server-modal-title"
+                    aria-describedby="server-modal-description"
+                    sx={{
+                        display: 'flex',
+                        p: 1,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                    }}
+                    container={() => rootRef.current!}
+                >
+                    <Box
+                        sx={(theme) => ({
+                            position: 'relative',
+                            width: 400,
+                            bgcolor: 'background.paper',
+                            border: '2px solid #000',
+                            boxShadow: theme.shadows[5],
+                            p: 4,
+                        })}
+                    >
+                        <Typography id="modal-title" variant="h6" component="h2">
+                            Confirm Deletion
+                        </Typography>
+                        <Typography id="modal-description" sx={{ mt: 2 }}>
+                            Are you sure you want to delete {selectedItem?.firstName || 'this item'}?
+                        </Typography>
+                        <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 2 }}>
+                            <Button onClick={() => setModalOpen(false)} color="primary">
+                                Cancel
+                            </Button>
+                            <Button onClick={() => setModalOpen(false)} color="secondary" sx={{ ml: 2 }}>
+                                Delete
+                            </Button>
+                        </Box>
+                    </Box>
+                </Modal>
             </Box>
         );
     }

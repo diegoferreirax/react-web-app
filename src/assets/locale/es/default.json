@@ -2,5 +2,7 @@
     "main_menu": "Menú principal",
     "clients": "Clientes",
     "developed_by": "Desarrollado por",
-    "about": "Acerca de"
+    "about": "Acerca de",
+    "virtual_scroll": "Desplazamiento virtual",
+    "virtual_scroll_description": "El desplazamiento virtual es una técnica de optimización de rendimiento que renderiza solo los elementos visibles en la pantalla, mejorando la eficiencia en listas largas."
 }

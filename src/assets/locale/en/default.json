@@ -2,5 +2,7 @@
     "main_menu": "Main menu",
     "clients": "Clients",
     "developed_by": "Developed by",
-    "about": "About"
+    "about": "About",
+    "virtual_scroll": "Virtual scroll",
+    "virtual_scroll_description": "Virtual scroll is a performance optimization technique that renders only the items visible on the screen, improving efficiency in long lists."
 }
