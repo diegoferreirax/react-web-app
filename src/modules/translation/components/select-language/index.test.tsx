@@ -9,7 +9,7 @@ describe('SelectLanguage tests', () => {
         sessionStorage.clear();
     });
 
-    describe('SelectLanguage render test', () => {
+    describe('SelectLanguage render tests', () => {
 
         test('Português selected language render test', () => {
             sessionStorage.setItem('language', 'pt');

@@ -21,7 +21,7 @@ export const TranslationProvider: React.FC<{ children: ReactNode }> = ({ childre
     const [language, setLanguage] = useState<string>(sessionStorage.getItem('language') || 'pt');
     const [translations, setTranslations] = useState<Record<string, string>>({});
 
-    const loadTranslations = (lang: string) => {
+    const loadTranslations = (lang: string): void => {
         switch (lang) {
             case 'pt':
                 setTranslations(pt);
