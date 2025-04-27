@@ -1,8 +1,12 @@
 import * as React from 'react';
+import ClientListProvider from './list/container';
+import ClientList from './list';
 
 const Client: React.FC = () => {
     return (
-        <div>client works!</div>
+        <ClientListProvider>
+            <ClientList />
+        </ClientListProvider>
     );
 }
 
