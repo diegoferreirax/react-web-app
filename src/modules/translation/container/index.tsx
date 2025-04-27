@@ -5,9 +5,9 @@ import React, {
     ReactNode,
     useEffect
 } from 'react';
-import pt from 'assets/locale/pt/default.json';
-import en from 'assets/locale/en/default.json';
-import es from 'assets/locale/es/default.json';
+import pt from '../assets/locale/pt/default.json';
+import en from '../assets/locale/en/default.json';
+import es from '../assets/locale/es/default.json';
 
 interface TranslationContextProps {
     language: string;
@@ -21,7 +21,7 @@ export const TranslationProvider: React.FC<{ children: ReactNode }> = ({ childre
     const [language, setLanguage] = useState<string>(sessionStorage.getItem('language') || 'pt');
     const [translations, setTranslations] = useState<Record<string, string>>({});
 
-    const loadTranslations = (lang: string) => {
+    const loadTranslations = (lang: string): void => {
         switch (lang) {
             case 'pt':
                 setTranslations(pt);

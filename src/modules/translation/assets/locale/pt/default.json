@@ -1,0 +1,8 @@
+{
+    "main_menu": "Menu principal",
+    "clients": "Clientes",
+    "developed_by": "Desenvolvido por",
+    "about": "Sobre",
+    "virtual_scroll": "Rolagem virtual",
+    "virtual_scroll_description": "Rolagem virtual é uma técnica de otimização de desempenho que renderiza apenas os itens visíveis na tela, melhorando a eficiência em listas longas."
+}

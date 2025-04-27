@@ -1,9 +1,9 @@
 import React from 'react';
 import { MenuItem, Select } from '@mui/material';
 import { useTranslation } from '../../container';
-import ptFlag from 'assets/pt.png';
-import enFlag from 'assets/en.png';
-import esFlag from 'assets/es.png';
+import ptFlag from '../../assets/pt.png';
+import enFlag from '../../assets/en.png';
+import esFlag from '../../assets/es.png';
 
 const SelectLanguage: React.FC = () => {
     const {
