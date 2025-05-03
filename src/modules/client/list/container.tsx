@@ -14,7 +14,8 @@ const ClientListProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     const [clientListResponse, setClientListResponse] = useState<Client[]>([]);
 
     const handlerGetClientList = async () => {
-        setClientListResponse(await GetClients());
+        const response = await GetClients();
+        setClientListResponse(response.items);
     };
 
     return (
