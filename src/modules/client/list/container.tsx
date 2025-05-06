@@ -1,4 +1,4 @@
-import React, { createContext, useContext, ReactNode, useState } from 'react';
+import React, { createContext, useContext, ReactNode, useState, useEffect } from 'react';
 import { GetClients } from './service';
 import { Client } from '../client';
 
@@ -17,6 +17,10 @@ const ClientListProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
         const response = await GetClients();
         setClientListResponse(response.items);
     };
+
+    useEffect(() => {
+        handlerGetClientList();
+    }, []);
 
     return (
         <ClientListContext.Provider value={{

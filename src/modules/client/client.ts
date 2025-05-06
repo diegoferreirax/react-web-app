@@ -4,9 +4,9 @@ export class Client {
     public surname: string;
     public age: number;
     public state: string;
-    public phoneNumber: string;
+    public phonenumber: string;
 
-    private constructor(
+    constructor(
         name: string,
         surname: string,
         age: number,
@@ -17,17 +17,7 @@ export class Client {
         this.surname = surname;
         this.age = age;
         this.state = state;
-        this.phoneNumber = phoneNumber;
-    }
-
-    public static Create(
-        name: string,
-        surname: string,
-        age: number,
-        state: string,
-        phoneNumber: string
-    ): Client {
-        return new Client(name, surname, age, state, phoneNumber);
+        this.phonenumber = phoneNumber;
     }
     
 }

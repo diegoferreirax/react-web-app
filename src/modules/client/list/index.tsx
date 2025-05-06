@@ -1,15 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useClientListContext } from './container';
 
 const ClientList: React.FC = () => {
     const {
-        handlerGetClientList,
         clientListResponse,
     } = useClientListContext();
-
-    useEffect(() => {
-        handlerGetClientList();
-    }, []);
 
     return (
         <div>{clientListResponse && clientListResponse.length > 0 && clientListResponse.map((client, index) => (
@@ -18,7 +13,7 @@ const ClientList: React.FC = () => {
                 <p>Surname: {client.surname}</p>
                 <p>Age: {client.age}</p>
                 <p>State: {client.state}</p>
-                <p>Phone Number: {client.phoneNumber}</p>
+                <p>Phone Number: {client.phonenumber}</p>
             </div>
         ))
         }</div>
