@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Box, Paper } from '@mui/material';
-import { Client } from 'modules/client/client';
+import { Client } from 'modules/client/models/client';
 import { TableVirtuoso } from 'react-virtuoso';
 import { columns } from './types';
 import VirtuosoTableComponents from './table-components';

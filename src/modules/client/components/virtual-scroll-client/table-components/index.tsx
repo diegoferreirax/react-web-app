@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Paper, Table, TableBody, TableCell, TableContainer, TableFooter, TableHead } from '@mui/material';
-import { Client } from 'modules/client/client';
+import { Client } from 'modules/client/models/client';
 import { TableComponents } from 'react-virtuoso';
 import TableRow from '@mui/material/TableRow';
 import { columns } from '../types';

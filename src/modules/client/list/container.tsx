@@ -1,6 +1,6 @@
 import React, { createContext, useContext, ReactNode, useState, useEffect } from 'react';
 import { GetClients } from './service';
-import { Client } from '../client';
+import { Client } from '../models/client';
 
 interface ClientListContextProps {
     handlerGetClientList: () => Promise<void>;

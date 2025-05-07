@@ -1,6 +1,6 @@
 import * as React from 'react';
 import TableCell from '@mui/material/TableCell';
-import { Client } from 'modules/client/client';
+import { Client } from 'modules/client/models/client';
 import { ColumnData } from '../types';
 
 interface RowContentProps {

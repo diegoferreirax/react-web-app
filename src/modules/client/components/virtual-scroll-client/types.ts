@@ -1,4 +1,4 @@
-import { Client } from "modules/client/client";
+import { Client } from "modules/client/models/client";
 
 export interface ColumnData {
     dataKey: keyof Client;
