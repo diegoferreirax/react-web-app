@@ -1,22 +1,27 @@
-import React from 'react';
-import { useClientListContext } from './container';
+import * as React from 'react';
+import { Client } from 'modules/client/client';
+import { useClientListContext } from 'modules/client/list/container';
+import VirtualScrollClient from '../components/virtual-scroll';
 
 const ClientList: React.FC = () => {
+
+    // const [selectedItem, setSelectedItem] = React.useState<Client | null>(null);
+    // const [isModalOpen, setModalOpen] = React.useState(false);
+
     const {
         clientListResponse,
     } = useClientListContext();
 
+    const handleClientSelected = (client: Client) => {
+        // setSelectedItem(item);
+        // setModalOpen(true);
+        console.log(client);
+    };
+
     return (
-        <div>{clientListResponse && clientListResponse.length > 0 && clientListResponse.map((client, index) => (
-            <div key={index}>
-                <p>Name: {client.name}</p>
-                <p>Surname: {client.surname}</p>
-                <p>Age: {client.age}</p>
-                <p>State: {client.state}</p>
-                <p>Phone Number: {client.phonenumber}</p>
-            </div>
-        ))
-        }</div>
+        <VirtualScrollClient
+            clientListResponse={clientListResponse}
+            handleClientSelected={handleClientSelected} />
     );
 }
 

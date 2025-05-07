@@ -4,7 +4,7 @@ export class Client {
     public surname: string;
     public age: number;
     public state: string;
-    public phonenumber: string;
+    public phoneNumber: string;
 
     constructor(
         name: string,
@@ -17,7 +17,7 @@ export class Client {
         this.surname = surname;
         this.age = age;
         this.state = state;
-        this.phonenumber = phoneNumber;
+        this.phoneNumber = phoneNumber;
     }
     
 }
