@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { Client } from 'modules/client/client';
+import { Client } from 'modules/client/models/client';
 import { useClientListContext } from 'modules/client/list/container';
-import VirtualScrollClient from '../components/virtual-scroll';
+import { Box } from '@mui/material';
+import DataGridClient from '../components/data-grid-client';
 
 const ClientList: React.FC = () => {
 
@@ -19,9 +20,12 @@ const ClientList: React.FC = () => {
     };
 
     return (
-        <VirtualScrollClient
-            clientListResponse={clientListResponse}
-            handleClientSelected={handleClientSelected} />
+        <Box sx={{ height: 400, width: '100%' }}>
+            <DataGridClient
+                clientListResponse={clientListResponse}
+                handleClientSelected={handleClientSelected}
+            />
+        </Box>
     );
 }
 
