@@ -1,6 +1,6 @@
-import React, { createContext, useContext, ReactNode, useState } from 'react';
+import React, { createContext, useContext, ReactNode, useState, useEffect } from 'react';
 import { GetClients } from './service';
-import { Client } from '../client';
+import { Client } from '../models/client';
 
 interface ClientListContextProps {
     handlerGetClientList: () => Promise<void>;
@@ -14,8 +14,13 @@ const ClientListProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     const [clientListResponse, setClientListResponse] = useState<Client[]>([]);
 
     const handlerGetClientList = async () => {
-        setClientListResponse(await GetClients());
+        const response = await GetClients();
+        setClientListResponse(response.result);
     };
+
+    useEffect(() => {
+        handlerGetClientList();
+    }, []);
 
     return (
         <ClientListContext.Provider value={{

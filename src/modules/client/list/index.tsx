@@ -1,27 +1,31 @@
-import React, { useEffect } from 'react';
-import { useClientListContext } from './container';
+import * as React from 'react';
+import { Client } from 'modules/client/models/client';
+import { useClientListContext } from 'modules/client/list/container';
+import { Box } from '@mui/material';
+import DataGridClient from '../components/data-grid-client';
 
 const ClientList: React.FC = () => {
+
+    // const [selectedItem, setSelectedItem] = React.useState<Client | null>(null);
+    // const [isModalOpen, setModalOpen] = React.useState(false);
+
     const {
-        handlerGetClientList,
         clientListResponse,
     } = useClientListContext();
 
-    useEffect(() => {
-        handlerGetClientList();
-    }, []);
+    const handleClientSelected = (client: Client) => {
+        // setSelectedItem(item);
+        // setModalOpen(true);
+        console.log(client);
+    };
 
     return (
-        <div>{clientListResponse && clientListResponse.length > 0 && clientListResponse.map((client, index) => (
-            <div key={index}>
-                <p>Name: {client.name}</p>
-                <p>Surname: {client.surname}</p>
-                <p>Age: {client.age}</p>
-                <p>State: {client.state}</p>
-                <p>Phone Number: {client.phoneNumber}</p>
-            </div>
-        ))
-        }</div>
+        <Box sx={{ height: 400, width: '100%' }}>
+            <DataGridClient
+                clientListResponse={clientListResponse}
+                handleClientSelected={handleClientSelected}
+            />
+        </Box>
     );
 }
 
