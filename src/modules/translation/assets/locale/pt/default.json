@@ -4,5 +4,12 @@
     "developed_by": "Desenvolvido por",
     "about": "Sobre",
     "virtual_scroll": "Rolagem virtual",
-    "virtual_scroll_description": "Rolagem virtual é uma técnica de otimização de desempenho que renderiza apenas os itens visíveis na tela, melhorando a eficiência em listas longas."
+    "name": "Nome",
+    "date_of_birth": "Data de nascimento",
+    "age": "Idade",
+    "registered_clients_list": "Lista de clientes cadastrados",
+    "access_client": "Acessar cliente",
+    "rows_per_page": "Linhas por página",
+    "no_data": "Sem dados",
+    "page_not_found": "404 - Página não encontrada"
 }

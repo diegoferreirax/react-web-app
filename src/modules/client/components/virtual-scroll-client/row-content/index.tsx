@@ -23,21 +23,6 @@ const RowContent: React.FC<RowContentProps> = (props: RowContentProps) => {
                         onClick={() => props.handleClientSelected(props.row)}
                     >
                         {value}
-                        {/* {column.actions ? (
-                            <div>
-                                <IconButton aria-label="edit" size="small">
-                                    <EditIcon fontSize="small" />
-                                </IconButton>
-                                <IconButton
-                                    aria-label="delete"
-                                    size="small"
-                                >
-                                    <DeleteIcon fontSize="small" />
-                                </IconButton>
-                            </div>
-                        ) : (
-                            value
-                        )} */}
                     </TableCell>
                 );
             })}

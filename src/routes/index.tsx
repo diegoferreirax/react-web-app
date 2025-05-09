@@ -1,11 +1,16 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
+import { useTranslation } from 'modules/translation/container';
 import Client from 'modules/client';
 import Dashboard from 'modules/dashboard';
 import ProtectedRoutes from './protected-router';
 import About from 'modules/about';
 
 const RoutesApp: React.FC = () => {
+    const {
+        translate
+    } = useTranslation();
+
     return (
         <Routes>
             <Route path="/" element={<Navigate to="/dashboard" />} />
@@ -19,7 +24,7 @@ const RoutesApp: React.FC = () => {
                 </Route>
             </Route>
 
-            <Route path="*" element={<div>404 - Página não encontrada</div>} />
+            <Route path="*" element={translate('page_not_found')} />
         </Routes>
     );
 };

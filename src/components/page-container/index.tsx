@@ -15,16 +15,16 @@ type BreadcrumbsPages = {
 };
 
 type PageContainerProps = {
-    pageName: string;
+    pageDescription: string;
     children: React.ReactNode;
-    breadcrumbPrimaryPage: string;
+    breadcrumbPageName: string;
     breadcrumbsPages: BreadcrumbsPages[];
 };
 
 const PageContainer: React.FC<PageContainerProps> = (props: PageContainerProps) => {
     const navigate = useNavigate();
 
-    var breadcrumbs = (
+    const breadcrumbs = (
         <Breadcrumbs aria-label="breadcrumb">
             {props.breadcrumbsPages.map((item, index) => (
                 <Link
@@ -37,7 +37,7 @@ const PageContainer: React.FC<PageContainerProps> = (props: PageContainerProps) 
                     {item.name}
                 </Link>
             ))}
-            <Typography color="text.primary">{props.breadcrumbPrimaryPage}</Typography>
+            <Typography color="text.primary">{props.breadcrumbPageName}</Typography>
         </Breadcrumbs>
     );
 
@@ -63,7 +63,7 @@ const PageContainer: React.FC<PageContainerProps> = (props: PageContainerProps) 
                     paddingBottom: 2,
                 }}
             >
-                <Typography variant="h5">{props.pageName}</Typography>
+                <Typography variant="h5">{props.pageDescription}</Typography>
             </Box>
 
             <Divider />

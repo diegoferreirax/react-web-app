@@ -8,8 +8,13 @@ import {
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'; 
 import PageContainer from 'components/page-container';
 import DataGridClient from '../components/data-grid-client';
+import { useTranslation } from 'modules/translation/container';
 
 const ClientListPage: React.FC = () => {
+    const {
+        translate
+    } = useTranslation();
+
     const { 
         clientListResponse,
         clientTableSelected,
@@ -27,16 +32,16 @@ const ClientListPage: React.FC = () => {
 
     const handleClientTableSelected = () => {
         if (clientTableSelected) {
-            console.log('Accessing client:', clientTableSelected);
+            console.log(clientTableSelected);
         }
     };
 
     return (
         <PageContainer
-            pageName='Registered clients list'
-            breadcrumbPrimaryPage='Clients'
+            pageDescription={translate('registered_clients_list')}
+            breadcrumbPageName={translate('clients')}
             breadcrumbsPages={[
-                { name: 'Home', url: '/dashboard' },
+                { name: 'Dashboard', url: '/dashboard' },
             ]}
         >
             <DataGridClient
@@ -52,7 +57,7 @@ const ClientListPage: React.FC = () => {
                         sx={{ marginTop: 1 }}
                         endIcon={<ArrowForwardIcon />}
                     >
-                        Access Client
+                        {translate('access_client')}
                     </Button>
                 </Box>
             )}

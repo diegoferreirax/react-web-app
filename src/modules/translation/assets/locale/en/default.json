@@ -4,5 +4,12 @@
     "developed_by": "Developed by",
     "about": "About",
     "virtual_scroll": "Virtual scroll",
-    "virtual_scroll_description": "Virtual scroll is a performance optimization technique that renders only the items visible on the screen, improving efficiency in long lists."
+    "name": "Name",
+    "date_of_birth": "Date of birth",
+    "age": "Age",
+    "registered_clients_list": "Registered clients list",
+    "access_client": "Access Client",
+    "rows_per_page": "Rows per page",
+    "no_data": "No data",
+    "page_not_found": "404 - Page not found"
 }

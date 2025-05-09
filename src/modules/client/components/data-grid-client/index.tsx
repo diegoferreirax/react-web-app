@@ -1,33 +1,9 @@
 import * as React from 'react';
 import { Client } from 'modules/client/models/client';
-import './styles.css';
-
-import Box from '@mui/material/Box';
 import { DataGrid, GridColDef, GridRowSelectionModel } from '@mui/x-data-grid';
-
-const columns: GridColDef<Client>[] = [
-    {
-        field: 'name',
-        headerName: 'First name',
-        width: 180,
-    },
-    {
-        field: 'cpf',
-        headerName: 'CPF',
-        width: 150,
-    },
-    {
-        field: 'dateOfBirth',
-        headerName: 'Data de nascimento',
-        width: 160,
-    },
-    {
-        field: 'age',
-        headerName: 'Age',
-        type: 'number',
-        width: 110,
-    },
-];
+import { useTranslation } from 'modules/translation/container';
+import Box from '@mui/material/Box';
+import './styles.css';
 
 type DataGridClientProps = {
     clientListResponse: Client[];
@@ -35,6 +11,34 @@ type DataGridClientProps = {
 };
 
 const DataGridClient: React.FC<DataGridClientProps> = (props: DataGridClientProps) => {
+    const {
+        translate
+    } = useTranslation();
+
+    const columns: GridColDef<Client>[] = [
+        {
+            field: 'name',
+            headerName: translate('name'),
+            width: 180,
+        },
+        {
+            field: 'cpf',
+            headerName: 'CPF',
+            width: 150,
+        },
+        {
+            field: 'dateOfBirth',
+            headerName: translate('date_of_birth'),
+            width: 160,
+        },
+        {
+            field: 'age',
+            headerName: translate('age'),
+            type: 'number',
+            width: 110,
+        },
+    ];
+
     return (
         <Box sx={{ height: 400, width: '100%' }}>
             <DataGrid
@@ -58,6 +62,10 @@ const DataGridClient: React.FC<DataGridClientProps> = (props: DataGridClientProp
                 }}
                 onRowClick={(event) => {
                     props.handleClientSelected(event.row as Client);
+                }}
+                localeText={{
+                    paginationRowsPerPage: translate('rows_per_page'),
+                    noRowsLabel: translate('no_data')
                 }}
             />
         </Box>
