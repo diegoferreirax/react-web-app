@@ -1,15 +1,15 @@
 import { render, screen } from '@testing-library/react';
-import SelectLanguage from 'modules/translation/components/select-language';
 import { TranslationProvider } from 'modules/translation/container';
+import SelectLanguage from 'modules/translation/components/select-language';
 import userEvent from '@testing-library/user-event';
 
-describe('SelectLanguage tests', () => {
+describe('Modules -> Translation', () => {
 
     beforeEach(() => {
         sessionStorage.clear();
     });
 
-    describe('SelectLanguage render tests', () => {
+    describe('Modules -> Translation -> Components -> SelectLanguage render tests', () => {
 
         test('Português selected language render test', () => {
             sessionStorage.setItem('language', 'pt');
@@ -60,7 +60,7 @@ describe('SelectLanguage tests', () => {
         });
     });
 
-    describe('SelectLanguage click render tests', () => {
+    describe('Modules -> Translation -> Components -> SelectLanguage click render tests', () => {
 
         test('SelectLanguage click when Português is on cache', () => {
             sessionStorage.setItem('language', 'pt');

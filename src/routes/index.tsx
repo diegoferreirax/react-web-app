@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router';
 import { useTranslation } from 'modules/translation/container';
 import Client from 'modules/client';
 import Dashboard from 'modules/dashboard';
