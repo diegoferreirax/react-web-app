@@ -4,7 +4,6 @@ import { useTranslation } from 'modules/translation/container';
 import { Router, type Navigation } from '@toolpad/core/AppProvider';
 import PeopleIcon from '@mui/icons-material/People';
 import InfoIcon from '@mui/icons-material/Info';
-import ListIcon from '@mui/icons-material/List';
 
 interface RoutesContextProps {
     navigation: Navigation;
@@ -26,11 +25,6 @@ const RoutesProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
             segment: 'dashboard/clients',
             title: translate('clients'),
             icon: <PeopleIcon />,
-        },
-        {
-            segment: 'dashboard/virtual-scroll',
-            title: translate('virtual_scroll'),
-            icon: <ListIcon />,
         },
         {
             segment: 'dashboard/about',

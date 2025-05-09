@@ -1,11 +1,11 @@
 import * as React from 'react';
 import ClientListProvider from './list/container';
-import ClientList from './list';
+import ClientListPage from './list/page';
 
 const Client: React.FC = () => {
     return (
         <ClientListProvider>
-            <ClientList />
+            <ClientListPage />
         </ClientListProvider>
     );
 }

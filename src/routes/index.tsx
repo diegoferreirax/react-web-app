@@ -2,7 +2,6 @@ import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Client from 'modules/client';
 import Dashboard from 'modules/dashboard';
-import VirtualScroll from 'modules/virtual-scroll';
 import ProtectedRoutes from './protected-router';
 import About from 'modules/about';
 
@@ -17,7 +16,6 @@ const RoutesApp: React.FC = () => {
                 }>
                     <Route path="/dashboard/clients" element={<Client />} />
                     <Route path="/dashboard/about" element={<About />} />
-                    <Route path="/dashboard/virtual-scroll" element={<VirtualScroll />} />
                 </Route>
             </Route>
 

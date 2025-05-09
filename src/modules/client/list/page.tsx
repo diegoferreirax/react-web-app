@@ -4,7 +4,7 @@ import { useClientListContext } from 'modules/client/list/container';
 import { Box } from '@mui/material';
 import DataGridClient from '../components/data-grid-client';
 
-const ClientList: React.FC = () => {
+const ClientListPage: React.FC = () => {
 
     // const [selectedItem, setSelectedItem] = React.useState<Client | null>(null);
     // const [isModalOpen, setModalOpen] = React.useState(false);
@@ -29,4 +29,4 @@ const ClientList: React.FC = () => {
     );
 }
 
-export default ClientList;
+export default ClientListPage;
