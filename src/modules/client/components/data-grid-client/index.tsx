@@ -1,48 +1,37 @@
 import * as React from 'react';
 import { Client } from 'modules/client/models/client';
+import './styles.css';
 
 import Box from '@mui/material/Box';
-import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import { DataGrid, GridColDef, GridRowSelectionModel } from '@mui/x-data-grid';
 
 const columns: GridColDef<Client>[] = [
     {
         field: 'name',
         headerName: 'First name',
         width: 180,
-        editable: true,
     },
     {
-        field: 'surname',
-        headerName: 'Last name',
-        width: 180,
-        editable: true,
+        field: 'cpf',
+        headerName: 'CPF',
+        width: 150,
     },
     {
-        field: 'fullName',
-        headerName: 'Full name',
-        description: 'This column has a value getter and is not sortable.',
-        sortable: false,
+        field: 'dateOfBirth',
+        headerName: 'Data de nascimento',
         width: 160,
-        valueGetter: (value, row) => `${row.name || ''} ${row.surname || ''}`,
     },
     {
         field: 'age',
         headerName: 'Age',
         type: 'number',
         width: 110,
-        editable: true,
-    },
-    {
-        field: 'phoneNumber',
-        headerName: 'Phone',
-        width: 150,
-        editable: true,
     },
 ];
 
 type DataGridClientProps = {
     clientListResponse: Client[];
-    handleClientSelected: (client: Client) => void;
+    handleClientSelected: (client: Client | undefined) => void;
 };
 
 const DataGridClient: React.FC<DataGridClientProps> = (props: DataGridClientProps) => {
@@ -50,7 +39,11 @@ const DataGridClient: React.FC<DataGridClientProps> = (props: DataGridClientProp
         <Box sx={{ height: 400, width: '100%' }}>
             <DataGrid
                 rows={props.clientListResponse}
+                checkboxSelection
+                disableMultipleRowSelection
+                hideFooterSelectedRowCount={true}
                 columns={columns}
+                pageSizeOptions={[5, 15, 30]}
                 initialState={{
                     pagination: {
                         paginationModel: {
@@ -58,7 +51,11 @@ const DataGridClient: React.FC<DataGridClientProps> = (props: DataGridClientProp
                         },
                     },
                 }}
-                pageSizeOptions={[5, 15, 30]}
+                onRowSelectionModelChange={(ids: GridRowSelectionModel) => {
+                    if (ids.ids.size === 0) {
+                        props.handleClientSelected(undefined);
+                    }
+                }}
                 onRowClick={(event) => {
                     props.handleClientSelected(event.row as Client);
                 }}

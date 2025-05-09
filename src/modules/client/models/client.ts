@@ -1,23 +1,26 @@
 export class Client {
 
+    public id: string;
     public name: string;
-    public surname: string;
+    public cpf: string;
+    public dateOfBirth: string;
+    public motherName: string;
     public age: number;
-    public state: string;
-    public phoneNumber: string;
 
     constructor(
+        id: string,
         name: string,
-        surname: string,
+        cpf: string,
+        dateOfBirth: string,
+        motherName: string,
         age: number,
-        state: string,
-        phoneNumber: string
     ) {
+        this.id = id;
         this.name = name;
-        this.surname = surname;
+        this.cpf = cpf;
+        this.dateOfBirth = dateOfBirth;
+        this.motherName = motherName;
         this.age = age;
-        this.state = state;
-        this.phoneNumber = phoneNumber;
     }
     
 }
