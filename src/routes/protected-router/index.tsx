@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet } from 'react-router';
+import { Outlet } from 'react-router-dom';
 
 const ProtectedRoutes: React.FC = () => {
     // const isAuthenticated = true;
