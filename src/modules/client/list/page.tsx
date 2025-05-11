@@ -1,21 +1,21 @@
-import * as React from 'react';
+import React from 'react';
 import { Client } from 'modules/client/models/client';
 import { useClientListContext } from 'modules/client/list/container';
 import {
     Box,
     Button,
 } from '@mui/material';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward'; 
+import { useTranslation } from 'modules/translation/container';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import PageContainer from 'components/page-container';
 import DataGridClient from '../components/data-grid-client';
-import { useTranslation } from 'modules/translation/container';
 
 const ClientListPage: React.FC = () => {
     const {
         translate
     } = useTranslation();
 
-    const { 
+    const {
         clientListResponse,
         clientTableSelected,
         setClientTableSelected,
@@ -45,7 +45,8 @@ const ClientListPage: React.FC = () => {
             ]}
         >
             <DataGridClient
-                clientListResponse={clientListResponse}
+                isLoading={clientListResponse.isLoading}
+                clientListResponse={clientListResponse.data ?? []}
                 handleClientSelected={handleClientSelected}
             />
             {clientTableSelected && (

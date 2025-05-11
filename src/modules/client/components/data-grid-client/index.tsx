@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 import './styles.css';
 
 type DataGridClientProps = {
+    isLoading: boolean;
     clientListResponse: Client[];
     handleClientSelected: (client: Client | undefined) => void;
 };
@@ -48,6 +49,7 @@ const DataGridClient: React.FC<DataGridClientProps> = (props: DataGridClientProp
                 hideFooterSelectedRowCount={true}
                 columns={columns}
                 pageSizeOptions={[5, 15, 30]}
+                loading={props.isLoading}
                 initialState={{
                     pagination: {
                         paginationModel: {

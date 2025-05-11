@@ -7,10 +7,12 @@ import React, {
 } from 'react';
 import { GetClients } from './service';
 import { Client } from '../models/client';
+import { IResponseContract } from 'configurations/response-contract/type';
+import { useResponseContract } from 'configurations/response-contract/container';
 
 interface ClientListContextProps {
-    handlerGetClientListResponse: () => Promise<void>;
-    clientListResponse: Client[];
+    handlerGetClientListResponse: () => void;
+    clientListResponse: IResponseContract<Client[]>;
     clientTableSelected: Client | undefined;
     setClientTableSelected: (client: Client | undefined) => void;
     unsetClientTableSelected: () => void;
@@ -20,20 +22,27 @@ const ClientListContext = createContext<ClientListContextProps | undefined>(unde
 
 const ClientListProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 
-    const [clientListResponse, setClientListResponse] = useState<Client[]>([]);
+    const [clientListResponse, setClientListResponse, resetClientListState] = useResponseContract<Client[]>();
     const [clientTableSelected, setClientTableSelected] = useState<Client | undefined>(undefined);
 
-    const handlerGetClientListResponse = async () => {
-        const response = await GetClients();
-        setClientListResponse(response.result);
+    const handlerGetClientListResponse = () => {
+        GetClients().subscribe((clientListResponse) => {
+            setClientListResponse(clientListResponse);
+        });
     };
 
     const unsetClientTableSelected = () => {
-        setClientTableSelected(undefined)
+        setClientTableSelected(undefined);
     };
 
     useEffect(() => {
         handlerGetClientListResponse();
+    }, []);
+
+    useEffect(() => {
+        return () => {
+            resetClientListState();
+        };
     }, []);
 
     return (
