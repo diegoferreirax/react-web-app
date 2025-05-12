@@ -14,7 +14,7 @@ const RoutesContext = createContext<RoutesContextProps | undefined>(undefined);
 
 const RoutesProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const { translate } = useTranslation();
-    const router = useDemoRouter('/dashboard');
+    const router = useDemoRouter('/d');
 
     const navigation: Navigation = [
         {
@@ -22,12 +22,12 @@ const RoutesProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
             title: translate('main_menu'),
         },
         {
-            segment: 'dashboard/clients',
+            segment: 'd/clients',
             title: translate('clients'),
             icon: <PeopleIcon />,
         },
         {
-            segment: 'dashboard/about',
+            segment: 'd/about',
             title: translate('about'),
             icon: <InfoIcon />,
         },

@@ -13,14 +13,14 @@ const RoutesApp: React.FC = () => {
 
     return (
         <Routes>
-            <Route path="/" element={<Navigate to="/dashboard" />} />
+            <Route path="/" element={<Navigate to="/d" />} />
 
             <Route element={<ProtectedRoutes />}>
-                <Route path="/dashboard" element={
+                <Route path="/d" element={
                     <Dashboard />
                 }>
-                    <Route path="/dashboard/clients" element={<Client />} />
-                    <Route path="/dashboard/about" element={<About />} />
+                    <Route path="/d/clients" element={<Client />} />
+                    <Route path="/d/about" element={<About />} />
                 </Route>
             </Route>
 
