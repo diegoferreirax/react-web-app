@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import { TranslationProvider } from 'modules/translation/container';
-import SelectLanguage from 'modules/translation/components/select-language';
+import { TranslationProvider } from 'modules/translation/container/TranslationProvider';
+import SelectLanguage from 'modules/translation/components/select-language/SelectLanguage';
 import userEvent from '@testing-library/user-event';
 
 describe(':: Modules', () => {

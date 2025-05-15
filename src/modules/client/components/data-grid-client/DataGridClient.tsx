@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Client } from 'modules/client/models/client';
 import { DataGrid, GridColDef, GridRowSelectionModel } from '@mui/x-data-grid';
-import { useTranslation } from 'modules/translation/container';
+import { useTranslation } from 'modules/translation/container/TranslationProvider';
 import Box from '@mui/material/Box';
 import './styles.css';
 

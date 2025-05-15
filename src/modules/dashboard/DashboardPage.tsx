@@ -3,10 +3,10 @@ import { createTheme } from '@mui/material/styles';
 import { AppProvider } from '@toolpad/core/AppProvider';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
 import { Navigate, Outlet } from 'react-router-dom';
-import { useRoutesContext } from 'routes/container';
-import AppTitle from './slots/app-title';
-import ToolbarActions from './slots/toolbar-actions';
-import SidebarFooter from './slots/sidebar-footer';
+import { useRoutesContext } from 'routes/RoutesProvider';
+import AppTitle from './slots/app-title/AppTitle';
+import ToolbarActions from './slots/toolbar-actions/ToolbarActions';
+import SidebarFooter from './slots/sidebar-footer/SidebarFooter';
 
 const theme = createTheme({
     cssVariables: {

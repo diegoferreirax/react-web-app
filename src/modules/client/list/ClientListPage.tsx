@@ -1,14 +1,14 @@
 import React from 'react';
 import { Client } from 'modules/client/models/client';
-import { useClientListContext } from 'modules/client/list/container';
+import { useClientListContext } from 'modules/client/list/ClientListProvider';
 import {
     Box,
     Button,
 } from '@mui/material';
-import { useTranslation } from 'modules/translation/container';
+import { useTranslation } from 'modules/translation/container/TranslationProvider';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import PageContainer from 'components/page-container';
-import DataGridClient from '../components/data-grid-client';
+import PageContainer from 'components/page-container/PageContainer';
+import DataGridClient from '../components/data-grid-client/DataGridClient';
 
 const ClientListPage: React.FC = () => {
     const {

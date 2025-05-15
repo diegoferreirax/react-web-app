@@ -1,7 +1,7 @@
 import React from 'react';
 import { Stack } from '@mui/material';
 import { ThemeSwitcher } from '@toolpad/core';
-import SelectLanguage from 'modules/translation/components/select-language';
+import SelectLanguage from 'modules/translation/components/select-language/SelectLanguage';
 
 const ToolbarActions: React.FC = () => {
     return (

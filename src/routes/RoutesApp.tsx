@@ -1,10 +1,10 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { useTranslation } from 'modules/translation/container';
-import Client from 'modules/client';
-import Dashboard from 'modules/dashboard';
-import ProtectedRoutes from './protected-router';
-import About from 'modules/about';
+import { useTranslation } from 'modules/translation/container/TranslationProvider';
+import ClientPage from 'modules/client/ClientPage';
+import Dashboard from 'modules/dashboard/DashboardPage';
+import ProtectedRoutes from './protected-router/ProtectedRoutes';
+import About from 'modules/about/About';
 
 const RoutesApp: React.FC = () => {
     const {
@@ -19,7 +19,7 @@ const RoutesApp: React.FC = () => {
                 <Route path="/d" element={
                     <Dashboard />
                 }>
-                    <Route path="/d/clients" element={<Client />} />
+                    <Route path="/d/clients" element={<ClientPage />} />
                     <Route path="/d/about" element={<About />} />
                 </Route>
             </Route>

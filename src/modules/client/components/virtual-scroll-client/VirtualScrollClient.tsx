@@ -3,9 +3,9 @@ import { Box, Paper } from '@mui/material';
 import { Client } from 'modules/client/models/client';
 import { TableVirtuoso } from 'react-virtuoso';
 import { columns } from './types';
-import VirtuosoTableComponents from './table-components';
-import FixedHeaderContent from './fixed-header-content';
-import RowContent from './row-content';
+import VirtuosoTableComponents from './table-components/VirtuosoTableComponents';
+import FixedHeaderContent from './fixed-header-content/FixedHeaderContent';
+import RowContent from './row-content/RowContent';
 
 type VirtualScrollClientProps = {
     clientListResponse: Client[];

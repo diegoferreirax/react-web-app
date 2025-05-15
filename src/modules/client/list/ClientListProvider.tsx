@@ -5,7 +5,7 @@ import React, {
     useState,
     useEffect
 } from 'react';
-import { GetClients } from './service';
+import { GetClients } from './ClientListService';
 import { Client } from '../models/client';
 import { IResponseContract } from 'configurations/response-contract/type';
 import { useResponseContract } from 'configurations/response-contract/container';

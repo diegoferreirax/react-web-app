@@ -1,6 +1,6 @@
 import React, { createContext, useContext, ReactNode } from 'react';
 import { useDemoRouter } from '@toolpad/core/internal';
-import { useTranslation } from 'modules/translation/container';
+import { useTranslation } from 'modules/translation/container/TranslationProvider';
 import { Router, type Navigation } from '@toolpad/core/AppProvider';
 import PeopleIcon from '@mui/icons-material/People';
 import InfoIcon from '@mui/icons-material/Info';
