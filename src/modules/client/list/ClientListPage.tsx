@@ -41,7 +41,7 @@ const ClientListPage: React.FC = () => {
             pageDescription={translate('registered_clients_list')}
             breadcrumbPageName={translate('clients')}
             breadcrumbsPages={[
-                { name: 'Dashboard', url: '/dashboard' },
+                { name: 'Dashboard', url: '/d' },
             ]}
         >
             <DataGridClient
