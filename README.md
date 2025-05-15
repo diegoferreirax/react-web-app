@@ -3,7 +3,7 @@
 Projeto criado em React utilizando Typescript para implementações de diversas funcionalidades de âmbito geral, para fins de treinamento, estudos e atualizações.
 
 Este projeto está hospedado utilizando o **GitHub Pages** e pode ser acessado através da seguinte URL:  
-[https://diegoferreirax.github.io/react-web-app/](https://diegoferreirax.github.io/react-web-app/)
+[https://diegoferreirax.github.io/react-web-app/#/d/](https://diegoferreirax.github.io/react-web-app/#/d/)
 
 ## ⚙️ Configuração
 
