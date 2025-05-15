@@ -32,6 +32,7 @@ const ClientListPage: React.FC = () => {
 
     const handleClientTableSelected = () => {
         if (clientTableSelected) {
+            console.log(clientTableSelected);
         }
     };
 
