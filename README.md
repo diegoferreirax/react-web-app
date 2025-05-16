@@ -5,7 +5,7 @@ Projeto criado em React utilizando Typescript para implementações de diversas 
 Este projeto está hospedado utilizando **GitHub Actions** e pode ser acessado através da seguinte URL:  
 [https://diegoferreirax.github.io/react-web-app/#/d/](https://diegoferreirax.github.io/react-web-app/#/d/)    
 
-Na pasta `.github/workflows` contém o arquivo `deploy.yml` com as configurações de publicação com **GitHub Actions**. No mesmo, há também configurações de variáveis secrets configuradas internamente no repositório para maior segurança.
+Na pasta `.github/workflows` contém o arquivo `deploy.yml` com as configurações de publicação com **GitHub Actions**. No mesmo, há também configurações de variáveis secrets configuradas internamente no repositório para maior segurança.     
 
 ## ⚙️ Configuração ambiente
 
@@ -13,7 +13,7 @@ Para configurar o ambiente de desenvolvimento, siga os passos abaixo:
 
 1. **Instalar Node.js**
    - Certifique-se de ter o [Node.js](https://nodejs.org/) instalado em sua máquina. Recomenda-se a versão LTS.
-   - Para verificar a instalação, execute:
+   - Certifique-se que a instalação foi realizada com sucesso:
      ```sh
      node --version
      ```
@@ -60,10 +60,9 @@ Você pode rodar o projeto de duas formas:
      ```
 
 2. **Rodar com Docker**
-   - Com o Docker instalado, você pode rodar o projeto em um container utilizando os comandos:
+   - Com o Docker instalado, você pode rodar o projeto em um container utilizando o comando:
      ```sh
-     docker build -t react-web-app .
-     docker run -p 3000:80 react-web-app
+     docker compose -f docker-compose.yml up -d --force-recreate
      ```
 
 Após iniciar o servidor (por PNPM ou Docker), acesse a aplicação no navegador em:  

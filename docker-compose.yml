@@ -1,0 +1,12 @@
+services:
+  react-web-app:
+    container_name: react-web-app
+    image: 23-alpine
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        REACT_APP_MOCK_API: https://mock-api
+    ports:
+      - "3000:80"
+      
