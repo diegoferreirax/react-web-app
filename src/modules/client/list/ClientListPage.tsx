@@ -33,7 +33,7 @@ const ClientListPage: React.FC = () => {
     const handleClientTableSelected = () => {
         if (clientTableSelected) {
             console.log(clientTableSelected);
-            console.log('log teste commit 2');
+            console.log('log teste commit 3');
         }
     };
 
