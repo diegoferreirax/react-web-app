@@ -14,6 +14,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      CI: false
+      REACT_APP_MOCK_API: ${{ vars.REACT_APP_MOCK_API }}
+
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
@@ -37,10 +41,8 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    
+
     environment:
-      CI: false
-      REACT_APP_MOCK_API: ${{ vars.REACT_APP_MOCK_API }}
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
