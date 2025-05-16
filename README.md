@@ -2,10 +2,12 @@
 
 Projeto criado em React utilizando Typescript para implementações de diversas funcionalidades de âmbito geral, para fins de treinamento, estudos e atualizações.
 
-Este projeto está hospedado utilizando o **GitHub Pages** e **GitHub Actions** e pode ser acessado através da seguinte URL:  
-[https://diegoferreirax.github.io/react-web-app/#/d/](https://diegoferreirax.github.io/react-web-app/#/d/)
+Este projeto está hospedado utilizando **GitHub Actions** e pode ser acessado através da seguinte URL:  
+[https://diegoferreirax.github.io/react-web-app/#/d/](https://diegoferreirax.github.io/react-web-app/#/d/)    
 
-## ⚙️ Configuração
+Na pasta `.github/workflows` contém o arquivo `deploy.yml` com as configurações de publicação com **GitHub Actions**. No mesmo, há também configurações de variáveis secrets configuradas internamente no repositório para maior segurança.
+
+## ⚙️ Configuração ambiente
 
 Para configurar o ambiente de desenvolvimento, siga os passos abaixo:
 
@@ -26,7 +28,14 @@ Para configurar o ambiente de desenvolvimento, siga os passos abaixo:
      npm install -g pnpm
      ```
 
-## 🛠️ Baixar e iniciar o projeto
+3. **Instalar Docker (opcional para rodar o projeto em container)**
+   - Baixe e instale o [Docker Desktop](https://www.docker.com/products/docker-desktop/) para seu sistema operacional.
+   - Após a instalação, verifique se o Docker está funcionando corretamente:
+     ```sh
+     docker --version
+     ```
+
+## 🛠️ Baixar projeto
 
 1. **Baixar o projeto**
    - Clone o repositório utilizando o comando:
@@ -34,28 +43,33 @@ Para configurar o ambiente de desenvolvimento, siga os passos abaixo:
      git clone https://github.com/diegoferreirax/react-web-app.git
      ```
    - Alternativamente, faça o download do código-fonte manualmente e extraia os arquivos.
-
-2. **Instalar dependências**   
    - No diretório atual, entre no projeto de React Web App:
      ```sh
      cd react-web-app
      ```
-   - Execute o comando para baixar as dependências:
-      ```sh
-      pnpm install
-      ```
 
-4. **Iniciar o servidor de desenvolvimento**
-   - Para iniciar o servidor de desenvolvimento, execute:
+## 🚀 Rodar projeto
+
+Você pode rodar o projeto de duas formas:
+
+1. **Rodar com PNPM**   
+   - Execute os comandos para baixar as dependências e iniciar o projeto:
      ```sh
+     pnpm install
      pnpm start
      ```
-     
-5. **Acessar a aplicação**
-   - Após iniciar o servidor, acesse a aplicação no navegador em:  
+
+2. **Rodar com Docker**
+   - Com o Docker instalado, você pode rodar o projeto em um container utilizando os comandos:
+     ```sh
+     docker build -t react-web-app .
+     docker run -p 3000:80 react-web-app
      ```
-     http://localhost:3000
-     ```
+
+Após iniciar o servidor (por PNPM ou Docker), acesse a aplicação no navegador em:  
+```
+http://localhost:3000
+```
 
 ## 🧪 Testes da aplicação
 
