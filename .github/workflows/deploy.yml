@@ -16,7 +16,7 @@ jobs:
 
     env:
       CI: false
-      REACT_APP_MOCK_API: ${{ vars.REACT_APP_MOCK_API }}
+      REACT_APP_MOCK_API: ${{ secrets.REACT_APP_MOCK_API }}
 
     steps:
       - name: Checkout source
