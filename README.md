@@ -67,7 +67,7 @@ Você pode rodar o projeto de duas formas:
 
 Após iniciar o servidor (por PNPM ou Docker), acesse a aplicação no navegador em:  
 ```
-http://localhost:3000
+http://localhost:3000/#/d
 ```
 
 ## 🧪 Testes da aplicação
