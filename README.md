@@ -2,7 +2,7 @@
 
 Projeto criado em React utilizando Typescript para implementações de diversas funcionalidades de âmbito geral, para fins de treinamento, estudos e atualizações.
 
-Este projeto está hospedado utilizando o **GitHub Pages** e pode ser acessado através da seguinte URL:  
+Este projeto está hospedado utilizando o **GitHub Pages** e **GitHub Actions** e pode ser acessado através da seguinte URL:  
 [https://diegoferreirax.github.io/react-web-app/#/d/](https://diegoferreirax.github.io/react-web-app/#/d/)
 
 ## ⚙️ Configuração
@@ -56,3 +56,14 @@ Para configurar o ambiente de desenvolvimento, siga os passos abaixo:
      ```
      http://localhost:3000
      ```
+
+## 🧪 Testes da aplicação
+
+O projeto está configurado com o **Jest** para execução dos testes automatizados.  
+Para rodar todos os testes e visualizar o resultado, incluindo o relatório de cobertura de código (coverage), utilize o comando abaixo:
+
+```sh
+pnpm test
+```
+
+O comando exibirá no terminal o resultado dos testes e o percentual de cobertura do código.
