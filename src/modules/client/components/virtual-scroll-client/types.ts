@@ -16,8 +16,8 @@ export const columns: ColumnData[] = [
     },
     {
         width: 100,
-        label: 'Last Name',
-        dataKey: 'surname',
+        label: 'CPF',
+        dataKey: 'cpf',
     },
     {
         width: 50,

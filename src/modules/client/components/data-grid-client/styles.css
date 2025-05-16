@@ -1,0 +1,4 @@
+.MuiDataGrid-cell {
+  outline: none !important;
+  cursor: pointer;
+}
