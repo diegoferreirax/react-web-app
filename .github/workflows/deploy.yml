@@ -16,6 +16,7 @@ jobs:
 
     env:
       CI: false
+      PUBLIC_URL: https://diegoferreirax.github.io/react-web-app
       REACT_APP_MOCK_API: ${{ secrets.REACT_APP_MOCK_API }}
 
     steps:
