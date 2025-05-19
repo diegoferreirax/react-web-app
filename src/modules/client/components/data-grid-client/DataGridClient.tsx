@@ -67,7 +67,15 @@ const DataGridClient: React.FC<DataGridClientProps> = (props: DataGridClientProp
                 }}
                 localeText={{
                     paginationRowsPerPage: translate('rows_per_page'),
-                    noRowsLabel: translate('no_data')
+                    noRowsLabel: translate('no_data'),
+                    columnMenuSortAsc: translate('column_menu_sort_asc'),
+                    columnMenuSortDesc: translate('column_menu_sort_desc'),
+                    columnMenuUnsort: translate('column_menu_unsort'),
+                    columnMenuFilter: translate('column_menu_filter'),
+                    columnMenuHideColumn: translate('column_menu_hide_column'),
+                    columnMenuManageColumns: translate('column_menu_manage_columns'),
+                    columnMenuLabel: translate('column_menu_label'),
+                    columnHeaderSortIconLabel: translate('column_header_sort_icon_label'),
                 }}
             />
         </Box>
