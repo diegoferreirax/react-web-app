@@ -11,5 +11,13 @@
     "access_client": "Acessar cliente",
     "rows_per_page": "Linhas por página",
     "no_data": "Sem dados",
-    "page_not_found": "404 - Página não encontrada"
+    "page_not_found": "404 - Página não encontrada",
+    "column_menu_sort_asc": "Crescente",
+    "column_menu_sort_desc": "Decrescente",
+    "column_menu_unsort": "Remover ordenação",
+    "column_menu_filter": "Filtrar",
+    "column_menu_hide_column": "Ocultar coluna",
+    "column_menu_manage_columns": "Gerenciar colunas",
+    "column_menu_label": "Menu",
+    "column_header_sort_icon_label": "Ordenar"
 }
