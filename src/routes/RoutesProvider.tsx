@@ -1,33 +1,30 @@
 import React, { createContext, useContext, ReactNode } from 'react';
-import { useDemoRouter } from '@toolpad/core/internal';
 import { useTranslation } from 'modules/translation/container/TranslationProvider';
-import { Router, type Navigation } from '@toolpad/core/AppProvider';
+import { type Navigation } from '@toolpad/core/AppProvider';
 import PeopleIcon from '@mui/icons-material/People';
 import InfoIcon from '@mui/icons-material/Info';
 
 interface RoutesContextProps {
-    navigation: Navigation;
-    router: Router;
+    menu: Navigation;
 }
 
 const RoutesContext = createContext<RoutesContextProps | undefined>(undefined);
 
 const RoutesProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const { translate } = useTranslation();
-    const router = useDemoRouter('/d');
 
-    const navigation: Navigation = [
+    const menu: Navigation = [
         {
             kind: 'header',
             title: translate('main_menu'),
         },
         {
-            segment: 'd/clients',
+            segment: '#/h/clients',
             title: translate('clients'),
             icon: <PeopleIcon />,
         },
         {
-            segment: 'd/about',
+            segment: '#/h/about',
             title: translate('about'),
             icon: <InfoIcon />,
         },
@@ -38,8 +35,7 @@ const RoutesProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 
     return (
         <RoutesContext.Provider value={{
-            navigation,
-            router,
+            menu,
         }}>
             {children}
         </RoutesContext.Provider>

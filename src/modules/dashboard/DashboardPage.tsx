@@ -2,7 +2,7 @@ import * as React from 'react';
 import { createTheme } from '@mui/material/styles';
 import { AppProvider } from '@toolpad/core/AppProvider';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
-import { Navigate, Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import { useRoutesContext } from 'routes/RoutesProvider';
 import AppTitle from './slots/app-title/AppTitle';
 import ToolbarActions from './slots/toolbar-actions/ToolbarActions';
@@ -28,15 +28,26 @@ interface DashboardProps {
     window?: () => Window;
 }
 
-const Dashboard: React.FC = (props: DashboardProps) => {
+const DashboardPage: React.FC = (props: DashboardProps) => {
+    const { menu } = useRoutesContext();
     const { window } = props;
-    const { navigation, router } = useRoutesContext();
+    
     const demoWindow = window !== undefined ? window() : undefined;
+    const location = useLocation();
+    const isRoot = location.pathname === '/h';
+
+    const DashboarContent = () => {
+        return (
+            <div>
+                <h1>Dashboard Content</h1>
+                <p>This is the dashboard content.</p>
+            </div>
+        );
+    };
 
     return (
         <AppProvider
-            navigation={navigation}
-            router={router}
+            navigation={menu}
             theme={theme}
             window={demoWindow}
         >
@@ -46,11 +57,10 @@ const Dashboard: React.FC = (props: DashboardProps) => {
                     toolbarActions: ToolbarActions,
                     sidebarFooter: SidebarFooter,
                 }}>
-                <Navigate to={router.pathname} />
-                <Outlet />
+                {isRoot ? <DashboarContent /> : <Outlet />}
             </DashboardLayout>
         </AppProvider>
     );
 }
 
-export default Dashboard;
+export default DashboardPage;

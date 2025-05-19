@@ -33,7 +33,6 @@ const ClientListPage: React.FC = () => {
     const handleClientTableSelected = () => {
         if (clientTableSelected) {
             console.log(clientTableSelected);
-            console.log('log teste commit 3');
         }
     };
 
@@ -42,7 +41,7 @@ const ClientListPage: React.FC = () => {
             pageDescription={translate('registered_clients_list')}
             breadcrumbPageName={translate('clients')}
             breadcrumbsPages={[
-                { name: 'Dashboard', url: '/d' },
+                { name: 'Home', url: '/h' },
             ]}
         >
             <DataGridClient

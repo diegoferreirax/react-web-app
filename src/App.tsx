@@ -1,16 +1,19 @@
 import React from 'react';
 import { TranslationProvider } from 'modules/translation/container/TranslationProvider';
+import { HashRouter } from 'react-router-dom';
 import RoutesApp from 'routes/RoutesApp';
-import RoutesProvider from 'routes/RoutesProvider';
 import './App.css';
+import RoutesProvider from 'routes/RoutesProvider';
 
 const App: React.FC = () => {
   return (
-    <TranslationProvider>
-      <RoutesProvider>
-        <RoutesApp />
-      </RoutesProvider>
-    </TranslationProvider>
+    <HashRouter>
+      <TranslationProvider>
+        <RoutesProvider>
+          <RoutesApp />
+        </RoutesProvider>
+      </TranslationProvider>
+    </HashRouter>
   );
 }
 

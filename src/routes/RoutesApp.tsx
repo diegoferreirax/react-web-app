@@ -2,9 +2,9 @@ import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { useTranslation } from 'modules/translation/container/TranslationProvider';
 import ClientPage from 'modules/client/ClientPage';
-import Dashboard from 'modules/dashboard/DashboardPage';
 import ProtectedRoutes from './protected-router/ProtectedRoutes';
 import About from 'modules/about/About';
+import DashboardPage from 'modules/dashboard/DashboardPage';
 
 const RoutesApp: React.FC = () => {
     const {
@@ -13,14 +13,14 @@ const RoutesApp: React.FC = () => {
 
     return (
         <Routes>
-            <Route path="/" element={<Navigate to="/d" />} />
+            <Route path="/" element={<Navigate to="h" />} />
 
             <Route element={<ProtectedRoutes />}>
-                <Route path="/d" element={
-                    <Dashboard />
+                <Route path="h" element={
+                    <DashboardPage />
                 }>
-                    <Route path="/d/clients" element={<ClientPage />} />
-                    <Route path="/d/about" element={<About />} />
+                    <Route path="clients" element={<ClientPage />} />
+                    <Route path="about" element={<About />} />
                 </Route>
             </Route>
 
