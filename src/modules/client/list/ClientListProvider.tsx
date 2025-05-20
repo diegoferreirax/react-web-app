@@ -3,7 +3,8 @@ import React, {
     useContext,
     ReactNode,
     useState,
-    useEffect
+    useEffect,
+    useCallback
 } from 'react';
 import { GetClients } from './ClientListService';
 import { Client } from '../models/client';
@@ -25,11 +26,11 @@ const ClientListProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     const [clientListResponse, setClientListResponse, resetClientListState] = useResponseContract<Client[]>();
     const [clientTableSelected, setClientTableSelected] = useState<Client | undefined>(undefined);
 
-    const handlerGetClientListResponse = () => {
+    const handlerGetClientListResponse = useCallback(() => {
         GetClients().subscribe((clientListResponse) => {
             setClientListResponse(clientListResponse);
         });
-    };
+    }, [setClientListResponse]);
 
     const unsetClientTableSelected = () => {
         setClientTableSelected(undefined);
@@ -37,12 +38,13 @@ const ClientListProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
 
     useEffect(() => {
         handlerGetClientListResponse();
-    }, []);
+    }, [handlerGetClientListResponse]);
 
     useEffect(() => {
         return () => {
             resetClientListState();
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
