@@ -3,28 +3,37 @@ import { useTranslation } from 'modules/translation/container/TranslationProvide
 import { type Navigation } from '@toolpad/core/AppProvider';
 import PeopleIcon from '@mui/icons-material/People';
 import InfoIcon from '@mui/icons-material/Info';
+import { useLocation } from 'react-router-dom';
 
 interface RoutesContextProps {
-    menu: Navigation;
+    routes: Navigation;
+    isRootRouter: boolean;
 }
 
 const RoutesContext = createContext<RoutesContextProps | undefined>(undefined);
 
 const RoutesProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const { translate } = useTranslation();
+    const location = useLocation();
 
-    const menu: Navigation = [
+    const publicUrl = process.env.PUBLIC_URL || null;
+    const clientRouter = publicUrl ? `react-web-app#/h/clients` : '#/h/clients';
+    const aboutRouter = publicUrl ? `react-web-app#/h/about` : '#/h/about';
+
+    const isRootRouter = location.hash.endsWith('#/h') || location.pathname.endsWith('/h') || location.pathname.endsWith('/h/');
+
+    const routes: Navigation = [
         {
             kind: 'header',
             title: translate('main_menu'),
         },
         {
-            segment: '#/h/clients',
+            segment: clientRouter,
             title: translate('clients'),
             icon: <PeopleIcon />,
         },
         {
-            segment: '#/h/about',
+            segment: aboutRouter,
             title: translate('about'),
             icon: <InfoIcon />,
         },
@@ -35,7 +44,8 @@ const RoutesProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 
     return (
         <RoutesContext.Provider value={{
-            menu,
+            routes,
+            isRootRouter,
         }}>
             {children}
         </RoutesContext.Provider>
