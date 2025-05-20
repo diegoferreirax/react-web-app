@@ -16,9 +16,9 @@ const RoutesProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const { translate } = useTranslation();
     const location = useLocation();
 
-    const publicUrl = process.env.PUBLIC_URL || null;
-    const clientRouter = publicUrl ? `react-web-app#/h/clients` : '#/h/clients';
-    const aboutRouter = publicUrl ? `react-web-app#/h/about` : '#/h/about';
+    const githubPagesRouter = process.env.PUBLIC_URL.endsWith('react-web-app') ? true : false;
+    const clientRouter = githubPagesRouter ? `react-web-app#/h/clients` : '#/h/clients';
+    const aboutRouter = githubPagesRouter ? `react-web-app#/h/about` : '#/h/about';
 
     const isRootRouter = location.hash.endsWith('#/h') || location.pathname.endsWith('/h') || location.pathname.endsWith('/h/');
 
