@@ -16,6 +16,7 @@ const config: Config = {
             functions: 90,
         },
     },
+    coverageReporters: ['text-summary'],
 };
 
 export default config;

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { createTheme } from '@mui/material/styles';
 import { AppProvider } from '@toolpad/core/AppProvider';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { useRoutesContext } from 'routes/RoutesProvider';
 import AppTitle from './slots/app-title/AppTitle';
 import ToolbarActions from './slots/toolbar-actions/ToolbarActions';
