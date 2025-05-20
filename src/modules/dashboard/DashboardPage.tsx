@@ -29,12 +29,10 @@ interface DashboardProps {
 }
 
 const DashboardPage: React.FC = (props: DashboardProps) => {
-    const { menu } = useRoutesContext();
+    const { routes, isRootRouter } = useRoutesContext();
     const { window } = props;
     
     const demoWindow = window !== undefined ? window() : undefined;
-    const location = useLocation();
-    const isRoot = location.pathname === '/h';
 
     const DashboarContent = () => {
         return (
@@ -47,7 +45,7 @@ const DashboardPage: React.FC = (props: DashboardProps) => {
 
     return (
         <AppProvider
-            navigation={menu}
+            navigation={routes}
             theme={theme}
             window={demoWindow}
         >
@@ -57,7 +55,7 @@ const DashboardPage: React.FC = (props: DashboardProps) => {
                     toolbarActions: ToolbarActions,
                     sidebarFooter: SidebarFooter,
                 }}>
-                {isRoot ? <DashboarContent /> : <Outlet />}
+                {isRootRouter ? <DashboarContent /> : <Outlet />}
             </DashboardLayout>
         </AppProvider>
     );
