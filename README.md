@@ -1,6 +1,6 @@
 # React Web App
 
-Projeto criado em React utilizando Typescript para implementações de diversas funcionalidades de âmbito geral, para fins de treinamento, estudos e atualizações.
+Projeto criado em React utilizando Typescript para implementações de diversas funcionalidades de âmbito geral, para fins de treinamento, estudos, atualizações e futuramente ser um template completo open source para o pessoal poder baixar utilizar/contribuir.
 
 Este projeto está hospedado utilizando **GitHub Actions** e pode ser acessado através da seguinte URL:  
 [https://diegoferreirax.github.io/react-web-app/#/h](https://diegoferreirax.github.io/react-web-app/#/h)    
